@@ -15,6 +15,17 @@ Did you know that you could run a chat service using only netcat?
 * `ncat`, for both servers and clients
 * (optional) `mawk`
 
+## License
+
+Since this client/server toolkit is basically stolen from here and there examples found on the Internet, that wouldn't be fair to assign a privative license to it.
+
+So this piece of software is published under the terms of the WTFPL (v2).
+
+Copyright © 2021 Bruno Bord <bruno@jehaisleprintemps.net>
+This work is free. You can redistribute it and/or modify it under the
+terms of the Do What The Fuck You Want To Public License, Version 2,
+as published by Sam Hocevar. See the COPYING file for more details.
+
 ## Running the server
 
 ### "Bare bones" servers
