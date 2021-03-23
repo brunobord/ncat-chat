@@ -2,6 +2,14 @@
 
 Did you know that you could run a chat service using only netcat?
 
+## BIG DISCLAIMER
+
+**This solution is by no mean production-safe. It's a toy.**
+
+* It doesn't use encryption between clients and servers,
+* Anybody can usurp anybody's identity, there's no control on the usernames.
+* `ncat` is a hell of a tool, but even if it has a quite large `--max-conns` argument (set to 100 on \*Nix, 60 on Windows), there's no guarantee that it can handle the network traffic or the CPU load.
+
 ## Requirements
 
 * `ncat`, for both servers and clients
