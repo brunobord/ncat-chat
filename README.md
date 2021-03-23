@@ -76,3 +76,23 @@ Similarly to the server port, you can also use environment variables to change y
 ```sh
 CHAT_HOST=alice-laptop CHAT_PORT=9999 CHAT_USER=Bob ./ncat-client.sh
 ```
+
+#### Colors
+
+You may chose the color with which your messages will be received by the other users. By default, no specific colour will be sent along. If you want to change that, use the `CHAT_COLOR` environment variable, such as:
+
+```sh
+CHAT_COLOR=cyan ./ncat-client.sh
+```
+
+Available colors:
+
+* `red`
+* `green`
+* `yellow`
+* `blue`
+* `magenta`
+* `cyan`
+* `white`
+
+If you're providing an unknown color, the "no-color" will be used.
