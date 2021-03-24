@@ -1,5 +1,31 @@
 #!/usr/bin/env bash
 
+help() {
+    echo "Usage:"
+    echo
+    echo "To run a client with the default parameters:"
+    echo
+    echo "   $0"
+    echo
+    echo "Use the following environment variables to change the connection parameters:"
+    echo
+    echo "* 'CHAT_HOST': Hostname or IP address of the server (default: localhost)"
+    echo "* 'CHAT_PORT': TCP port (default: 12345)"
+    echo "* 'CHAT_USER': Your username (default: the result of the 'whoami' command)"
+    echo "* 'CHAT_COLOR': Your message color (default: no-color)"
+    echo "                Available colors: red, green, yellow, blue, magenta, cyan, white."
+    echo
+    echo "Example:"
+    echo
+    echo "   CHAT_COLOR=blue CHAT_HOST=alice-laptop CHAT_PORT=9999 CHAT_USER=Bob $0"
+    echo
+}
+
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+  help
+  exit 1
+fi
+
 CHAT_HOST="${CHAT_HOST:-localhost}"
 CHAT_PORT="${CHAT_PORT:-12345}"
 CHAT_USER="${CHAT_USER:-`whoami`}"
