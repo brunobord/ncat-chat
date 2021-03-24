@@ -15,6 +15,7 @@ Did you know that you could run a chat service using only `netcat`/`ncat`?
 * `ncat` for servers,
 * `netcat` (a.k.a. `nc`) for clients,
 * `mawk` (optional, only used in a "bare-bones" example below).
+* `rlwrap` (optional, to use arrow keys in the client).
 
 ## License
 
@@ -108,3 +109,23 @@ Available colors:
 * `white`
 
 If you're providing an unknown color, the "no-color" will be used.
+
+### User-friendly interface with `rlwrap`
+
+You may notice that if you want to use arrows to move your cursor up/down or left/right, it inserts characters such as `^[[A^` or `[[D`. In order to enable arrow keys, you'd need to wrap launching the client script with the `rlwrap` tool, which wraps your program around GNU Readline.
+
+Then you can edit your message before sending it using right/left keys, and browse your input history using up/down arrow keys.
+
+Example usage:
+
+```sh
+rlwrap ./ncat-client.sh
+```
+
+Or, with environment variables:
+
+```sh
+CHAT_COLOR=blue CHAT_HOST=alice-laptop CHAT_PORT=9999 CHAT_USER=Bob rlwrap ./ncat-client.sh
+```
+
+Please note that the call to `rlwrap` should appear *after* the environment variable definitions, not before.
