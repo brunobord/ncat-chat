@@ -1,6 +1,6 @@
 # netcat-based chat
 
-Did you know that you could run a chat service using only netcat?
+Did you know that you could run a chat service using only `netcat`/`ncat`?
 
 ## BIG DISCLAIMER
 
@@ -12,8 +12,9 @@ Did you know that you could run a chat service using only netcat?
 
 ## Requirements
 
-* `ncat`, for both servers and clients
-* (optional) `mawk`
+* `ncat` for servers,
+* `netcat` (a.k.a. `nc`) for clients,
+* `mawk` (optional, only used in a "bare-bones" example below).
 
 ## License
 
