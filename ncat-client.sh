@@ -3,6 +3,7 @@
 CHAT_HOST="${CHAT_HOST:-localhost}"
 CHAT_PORT="${CHAT_PORT:-12345}"
 CHAT_USER="${CHAT_USER:-`whoami`}"
+USER_HOST=`hostname -s`
 
 # Colors
 red="$(tput setaf 1)"
@@ -18,5 +19,5 @@ CHAT_COLOR=${CHAT_COLOR:-off}
 
 
 while read line ; do
-   printf "${!CHAT_COLOR}${CHAT_USER}:${off} ${line}\n"
+   printf "${!CHAT_COLOR}${CHAT_USER}@${USER_HOST}:${off} ${line}\n"
 done | nc $CHAT_HOST $CHAT_PORT

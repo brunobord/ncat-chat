@@ -7,7 +7,7 @@ Did you know that you could run a chat service using only `netcat`/`ncat`?
 **This solution is by no mean production-safe. It's a toy.**
 
 * It doesn't use encryption between clients and servers,
-* Anybody can usurp anybody's identity, there's no control on the usernames.
+* Anybody can usurp anybody's identity, there's no real control on the usernames.
 * `ncat` is a hell of a tool, but even if it has a quite large `--max-conns` argument (set to 100 on \*Nix, 60 on Windows), there's no guarantee that it can handle the network traffic or the CPU load.
 
 ## Requirements
@@ -81,7 +81,7 @@ For your convenience, there's even a `.sh` script. If you want to connect to the
 ./ncat-client.sh
 ```
 
-You'll then be connected to the server on `localhost` on port `12345`. But the discussion here will be limited, since you'll be the only person speaking. And if you open another shell and run the same command, and try to write messages, you'll see that all messages are prefixed by your username (extracted from the result of the `whoami` command).
+You'll then be connected to the server on `localhost` on port `12345`. But the discussion here will be limited, since you'll be the only person speaking. And if you open another shell and run the same command, and try to write messages, you'll see that all messages are prefixed by your `username@host` (extracted from the result of the `whoami` & `hostname` commands).
 
 Similarly to the server port, you can also use environment variables to change your connection parameters. See the following example:
 
