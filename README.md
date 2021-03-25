@@ -14,6 +14,7 @@ Did you know that you could run a chat service using only `netcat`/`ncat`?
 
 * `ncat` for servers,
 * `netcat` (a.k.a. `nc`) for clients,
+* `awk`,
 * `mawk` (optional, only used in a "bare-bones" example below).
 * `rlwrap` (optional, to use arrow keys in the client).
 
