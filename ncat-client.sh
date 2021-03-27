@@ -43,7 +43,8 @@ off="$(tput sgr0)"
 
 CHAT_COLOR=${CHAT_COLOR:-off}
 
+echo "Connecting to ${CHAT_HOST}:${CHAT_PORT} as '${CHAT_USER}'"
 
 while read line ; do
     printf "${!CHAT_COLOR}${CHAT_USER}@${USER_HOST}:${off} ${line}\n"
-done | nc $CHAT_HOST $CHAT_PORT | awk '{ print strftime("[%Y-%m-%d %H:%M:%S] ") $0 }'; 
+done | nc $CHAT_HOST $CHAT_PORT | awk '{ print strftime("[%Y-%m-%d %H:%M:%S] ") $0 }';
