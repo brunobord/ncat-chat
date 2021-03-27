@@ -57,6 +57,8 @@ If you want to specify a dedicated port, you may use the following:
 CHAT_PORT=<port-number> ./ncat-server.sh
 ```
 
+You can use the `Ctrl-C` key shortcut to stop the server.
+
 ## Running a client
 
 ### "Bare bones" clients
@@ -90,6 +92,8 @@ Similarly to the server port, you can also use environment variables to change y
 ```sh
 CHAT_HOST=alice-laptop CHAT_PORT=9999 CHAT_USER=Bob ./ncat-client.sh
 ```
+
+You can use the `Ctrl-D` key shortcut to disconnect.
 
 #### Colors
 
