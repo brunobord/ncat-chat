@@ -6,7 +6,6 @@ Did you know that you could run a chat service using only `netcat`/`ncat`?
 
 **This solution is by no mean production-safe. It's a toy.**
 
-* It doesn't use encryption between clients and servers,
 * Anybody can usurp anybody's identity, there's no real control on the usernames.
 * `ncat` is a hell of a tool, but even if it has a quite large `--max-conns` argument (set to 100 on \*Nix, 60 on Windows), there's no guarantee that it can handle the network traffic or the CPU load.
 
@@ -35,12 +34,12 @@ as published by Sam Hocevar. See the COPYING file for more details.
 A "Bare bones" server would run using:
 
 ```sh
-ncat --broker --listen -p <port-number>
+ncat --ssl --broker --listen -p <port-number>
 ```
 
 You may assign any (available) port number for your server.
 
-Another way is to use the `--chat` parameter of ncat. But it prefixes every message with an arbitrary identifier. It makes you sure that nobody is usurpating your identity, but it might not be readable to have `<user1>`, `<user2>` or `<user3>` talking to each other.
+Another way is to use the `--chat` parameter of `ncat`. But it prefixes every message with an arbitrary identifier. It makes you sure that nobody is usurpating your identity, but it might not be readable to have `<user1>`, `<user2>` or `<user3>` talking to each other.
 
 ### Our ncat server
 
@@ -65,7 +64,7 @@ You can use the `Ctrl-C` key shortcut to stop the server.
 Run a chat client using:
 
 ```sh
-ncat <server-address-or-hostname> <port-number>
+ncat --ssl <server-address-or-hostname> <port-number>
 ```
 
 *Tip*: you can even test this on your own PC, in two separate shell sessions, where the server hostname would be: `localhost`.
@@ -73,8 +72,18 @@ ncat <server-address-or-hostname> <port-number>
 If you want to make sure that your username/nickname is sent each time you're sending a message, you may try to use `mawk` along:
 
 ```sh
-mawk -W interactive '$0="Alice: "$0' | ncat <server-address-or-hostname> <port-number>
+mawk -W interactive '$0="Alice: "$0' | ncat --ssl <server-address-or-hostname> <port-number>
 ```
+
+#### About the SSL option
+
+By default, the `ncat-client.sh` and `ncat-server.sh` scripts we're providing use SSL encryption.
+
+It's a bit safer for your privacy, because it prevents intruders to sniff your messages over the network. Although, as long as someone knows both your hostname and port, they can access your messaging service, so… things are not as safe as they seem.
+
+Please note that, if your server uses SSL, your client must use it also, otherwise you won't be able to send and receive messages through it.
+
+And, if you intend to *avoid* using SSL, the clients connected to it shouldn't use the `--ssl` option either, and you'll have to use the barebones clients & servers for that.
 
 ### Our client
 
