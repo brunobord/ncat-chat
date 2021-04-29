@@ -12,8 +12,7 @@ Did you know that you could run a chat service using only `netcat`/`ncat`?
 
 ## Requirements
 
-* `ncat` for servers,
-* `netcat` (a.k.a. `nc`) for clients,
+* `ncat` for servers & clients,
 * `awk`,
 * `mawk` (optional, only used in a "bare-bones" example below).
 * `rlwrap` (optional, to use arrow keys in the client).
@@ -66,7 +65,7 @@ You can use the `Ctrl-C` key shortcut to stop the server.
 Run a chat client using:
 
 ```sh
-nc <server-address-or-hostname> <port-number>
+ncat <server-address-or-hostname> <port-number>
 ```
 
 *Tip*: you can even test this on your own PC, in two separate shell sessions, where the server hostname would be: `localhost`.
@@ -74,7 +73,7 @@ nc <server-address-or-hostname> <port-number>
 If you want to make sure that your username/nickname is sent each time you're sending a message, you may try to use `mawk` along:
 
 ```sh
-mawk -W interactive '$0="Alice: "$0' | nc <server-address-or-hostname> <port-number>
+mawk -W interactive '$0="Alice: "$0' | ncat <server-address-or-hostname> <port-number>
 ```
 
 ### Our client
