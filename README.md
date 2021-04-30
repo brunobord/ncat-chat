@@ -1,5 +1,7 @@
 # netcat-based chat
 
+[![GitHub release](https://img.shields.io/github/release/brunobord/ncat-chat)](https://github.com/brunobord/ncat-chat/releases/)
+
 Did you know that you could run a chat service using only `netcat`/`ncat`?
 
 ## BIG DISCLAIMER
